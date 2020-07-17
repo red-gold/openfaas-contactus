@@ -1,0 +1,23 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:31112
+functions:
+  contactus-fn:
+    lang: node12
+    handler: ./contactus-fn
+    image: contactus-fn:latest
+    labels:
+      com.openfaas.scale.zero: false
+    environment:
+      base_href: '/contactus-fn/'
+  email-fn:
+    lang: node10-express-service
+    handler: ./email-fn
+    image: email-fn:latest
+    labels:
+      com.openfaas.scale.zero: false
+    secrets:
+      - secrets
+
+
