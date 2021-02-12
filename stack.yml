@@ -18,6 +18,8 @@ functions:
     labels:
       com.openfaas.scale.zero: false
     secrets:
-      - secrets
+      - gmail-pass
+      - gmail
+      - secret-key
 
 
